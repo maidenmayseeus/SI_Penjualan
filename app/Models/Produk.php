@@ -2,11 +2,19 @@
 
 namespace App\Models;
 
+use App\Models\Brand;
+use App\Models\ProdukSize;
+use App\Models\ProdukPhoto;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Produk extends Model
 {
-    use Hasfactory, SoftDeletes;
+    use HasFactory, SoftDeletes;
     protected $fillable = [
         'name',
         'slug',
