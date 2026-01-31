@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('city');
             $table->string('post_code');
             $table->string('proof');
-            $table->unsignedBigInteger('shoe_size');
+            $table->string('produk_size');
             $table->text('address');
             $table->unsignedBigInteger('quantity');
             $table->unsignedBigInteger('sub_total_amount');

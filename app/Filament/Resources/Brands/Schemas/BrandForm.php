@@ -20,7 +20,7 @@ class BrandForm
                     ->directory('brands')
                     ->maxSize(1024)
                     ->required()
-                    ->nullable(),
+                    ,
             ]);
     }
 }

@@ -24,7 +24,7 @@ class ProdukResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::ArchiveBox;
 
-    protected static ?string $recordTitleAttribute = 'Produk';
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {

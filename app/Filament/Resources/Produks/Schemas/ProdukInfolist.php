@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Produks\Schemas;
 
 use App\Models\Produk;
+use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
@@ -14,11 +15,17 @@ class ProdukInfolist
             ->components([
                 TextEntry::make('name'),
                 TextEntry::make('slug'),
-                TextEntry::make('thumbnail'),
+                ImageEntry::make('thumbnail'),
+                ImageEntry::make('photos.photo')
+                ->limit(1)
+                ->square()
+                ->limitedRemainingText()
+                ,
                 TextEntry::make('about')
                     ->columnSpanFull(),
+                TextEntry::make('sizes.size'),
                 TextEntry::make('price')
-                    ->money(),
+                    ->money('IDR'),
                 TextEntry::make('stock')
                     ->numeric(),
                 TextEntry::make('category.name')

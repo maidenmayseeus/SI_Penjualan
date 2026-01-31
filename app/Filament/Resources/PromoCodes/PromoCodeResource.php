@@ -22,9 +22,9 @@ class PromoCodeResource extends Resource
 {
     protected static ?string $model = PromoCode::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::PercentBadge;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::Gift;
 
-    protected static ?string $recordTitleAttribute = 'PromoCode';
+    protected static ?string $recordTitleAttribute = 'code';
 
     public static function form(Schema $schema): Schema
     {

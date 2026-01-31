@@ -4,6 +4,7 @@ namespace App\Filament\Resources\ProductTransactions\Schemas;
 
 use App\Models\ProductTransaction;
 use Filament\Infolists\Components\IconEntry;
+use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
@@ -20,27 +21,27 @@ class ProductTransactionInfolist
                 TextEntry::make('booking_trx_id'),
                 TextEntry::make('city'),
                 TextEntry::make('post_code'),
-                TextEntry::make('proof'),
-                TextEntry::make('shoe_size')
-                    ->numeric(),
                 TextEntry::make('address')
                     ->columnSpanFull(),
+                TextEntry::make('produk.name')
+                    ->label('Produk'),
+                TextEntry::make('produk_size'),
                 TextEntry::make('quantity')
                     ->numeric(),
                 TextEntry::make('sub_total_amount')
-                    ->numeric(),
+                    ->money('IDR'),
                 TextEntry::make('grand_total_amount')
-                    ->numeric(),
-                IconEntry::make('is_paid')
-                    ->boolean(),
-                TextEntry::make('produk.name')
-                    ->label('Produk'),
-                TextEntry::make('promoCode.id')
+                    ->money('IDR'),
+                TextEntry::make('promoCode.name')
                     ->label('Promo code')
                     ->placeholder('-'),
+                IconEntry::make('is_paid')
+                    ->boolean(),
+                ImageEntry::make('proof')
+                ->visible(fn(ProductTransaction $record) : bool => $record->is_paid == true),
                 TextEntry::make('deleted_at')
                     ->dateTime()
-                    ->visible(fn (ProductTransaction $record): bool => $record->trashed()),
+                    ->visible(fn(ProductTransaction $record): bool => $record->trashed()),
                 TextEntry::make('created_at')
                     ->dateTime()
                     ->placeholder('-'),
