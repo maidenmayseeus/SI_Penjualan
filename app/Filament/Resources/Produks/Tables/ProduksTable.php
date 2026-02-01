@@ -8,6 +8,7 @@ use Filament\Actions\EditAction;
 use Filament\Actions\ForceDeleteBulkAction;
 use Filament\Actions\RestoreBulkAction;
 use Filament\Actions\ViewAction;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
@@ -19,12 +20,10 @@ class ProduksTable
     {
         return $table
             ->columns([
-                TextColumn::make('name')
-                    ->searchable(),
-                TextColumn::make('slug')
-                    ->searchable(),
                 ImageColumn::make('thumbnail')
                     ->square(),
+                TextColumn::make('name')
+                    ->searchable(),
                 ImageColumn::make('photos.photo')
                 ->limit(1)
                 ->stacked()
@@ -37,10 +36,15 @@ class ProduksTable
                     ->numeric()
                     ->suffix(' pcs')
                     ->sortable(),
+                TextColumn::make('sizes.size')
+                    ->separator(',')
+                    ->lineClamp(1)
+                    ->searchable(),
                 TextColumn::make('category.name')
                     ->searchable(),
                 TextColumn::make('brand.name')
                     ->searchable(),
+                IconColumn::make('is_popular')->boolean()->label('Is Popular'),
                 TextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()

@@ -24,7 +24,10 @@ class ProdukResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::ArchiveBox;
 
-    protected static ?string $recordTitleAttribute = 'Produk';
+    protected static ?string $recordTitleAttribute = 'name';
+
+    // ubah urutan icon di navigation - https://filamentphp.com/docs/3.x/panels/navigation#sorting-navigation-items
+    protected static ?int $navigationSort = 3;
 
     public static function form(Schema $schema): Schema
     {

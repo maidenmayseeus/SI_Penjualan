@@ -18,8 +18,7 @@ class CategoryForm
                     ->image()
                     ->directory('categories')
                     ->maxSize(1024)
-                    ->required()
-                    ->nullable(),
+                    ->required(),
             ]);
     }
 }

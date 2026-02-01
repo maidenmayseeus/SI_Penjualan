@@ -22,9 +22,12 @@ class PromoCodeResource extends Resource
 {
     protected static ?string $model = PromoCode::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::PercentBadge;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::Gift;
 
-    protected static ?string $recordTitleAttribute = 'PromoCode';
+    protected static ?string $recordTitleAttribute = 'code';
+
+    // ubah urutan icon di navigation - https://filamentphp.com/docs/3.x/panels/navigation#sorting-navigation-items
+    protected static ?int $navigationSort = 4;
 
     public static function form(Schema $schema): Schema
     {

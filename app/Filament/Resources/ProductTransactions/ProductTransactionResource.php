@@ -24,7 +24,10 @@ class ProductTransactionResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::ShoppingCart;
 
-    protected static ?string $recordTitleAttribute = 'ProductTransaction';
+    protected static ?string $recordTitleAttribute = 'name';
+
+    // ubah urutan icon di navigation - https://filamentphp.com/docs/3.x/panels/navigation#sorting-navigation-items
+    protected static ?int $navigationSort = 4;
 
     public static function form(Schema $schema): Schema
     {
