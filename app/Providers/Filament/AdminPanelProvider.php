@@ -28,7 +28,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
-            ->spa()
+            ->spa() // uabh aplikasi jadi Single page aplication (SPA) - https://filamentphp.com/docs/3.x/panels/configuration#spa-mode
             ->colors([
                 'primary' => Color::Green,
             ])

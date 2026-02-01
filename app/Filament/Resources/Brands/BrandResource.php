@@ -26,7 +26,8 @@ class BrandResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
-
+    // ubah urutan icon di navigation - https://filamentphp.com/docs/3.x/panels/navigation#sorting-navigation-items
+    protected static ?int $navigationSort = 1;
 
     public static function form(Schema $schema): Schema
     {

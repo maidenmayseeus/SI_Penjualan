@@ -61,17 +61,18 @@ class ProductTransactionForm
                                         $produk = Produk::find($produkid);
                                         $sizes = $produk ? $produk->sizes->pluck('size', 'id')->toArray() : [];
                                         $set('produk_size_options', $sizes);
-                                        
+
                                     }
-                                    
+
                                 }),
-                                
+
                             Select::make('produk_size')
                                 ->options(function (callable $get):array {
                                     $sizes = $get('produk_size_options');
                                     return is_array($sizes) ? $sizes : [];
                                 })
                                 ->required()
+                                ->disabled(fn (Get $get) => empty($get('produk_size_options')))
                                 ->live(),
                             TextInput::make('quantity')
                                 ->required()
@@ -117,7 +118,7 @@ class ProductTransactionForm
                                 ->prefix('IDR'),
                                 ])
                         ]),
-                
+
                 Step::make('Customer information')
                     ->schema([
                         Grid::make(2)
@@ -163,11 +164,11 @@ class ProductTransactionForm
                     ]),
 
             ])
-            
+
             ->columnSpanfull()
             ->columns(1)
             ->skippable(),
                 ]);
-                
+
     }
 }

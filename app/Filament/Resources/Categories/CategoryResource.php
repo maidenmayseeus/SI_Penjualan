@@ -25,6 +25,8 @@ class CategoryResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::Tag;
 
     protected static ?string $recordTitleAttribute = 'name';
+    // ubah urutan icon di navigation - https://filamentphp.com/docs/3.x/panels/navigation#sorting-navigation-items
+    protected static ?int $navigationSort = 2;
 
     public static function form(Schema $schema): Schema
     {
