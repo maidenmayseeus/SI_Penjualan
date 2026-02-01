@@ -147,7 +147,8 @@ class ProductTransactionForm
                 Step::make('Payment Information')
                     ->schema([
                         TextInput::make('booking_trx_id')
-                            ->required()
+                            ->readOnly()
+                            ->default(fn() => ProductTransaction::generateUniqueTrxId())
                             ->maxLength(200),
                         ToggleButtons::make('is_paid')
                             ->label('Apakah Sudah Membayar')
@@ -157,9 +158,11 @@ class ProductTransactionForm
                                 true => 'heroicon-o-pencil',
                                 false => 'heroicon-o-clock',
                             ])
+                            ->live()
                             ->required(),
                         FileUpload::make('proof')
-                            ->required()
+                            ->disabled(fn(Get $get):bool => $get('is_paid') !== true)
+                            ->requiredIf('is_paid', true)
                             ->image(),
                     ]),
 
