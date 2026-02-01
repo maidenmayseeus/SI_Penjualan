@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('booking_trx_id');
             $table->string('city');
             $table->string('post_code');
-            $table->string('proof');
+            $table->string('proof')->nullable();
             $table->string('produk_size');
             $table->text('address');
             $table->unsignedBigInteger('quantity');
