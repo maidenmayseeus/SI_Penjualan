@@ -32,7 +32,7 @@ class ProductTransaction extends Model
         'proof',
 
     ];
-    public static function generateUniqueTrxId(): string 
+    public static function generateUniqueTrxId(): string
     {
         $prefix = 'TJH';
         do {
@@ -40,7 +40,7 @@ class ProductTransaction extends Model
         } while (self::where('booking_trx_id', $randomString)->exists());
         return $randomString;
     }
-    
+
     /**
      * Get the produk that owns the ProductTransaction
      *
@@ -59,5 +59,5 @@ class ProductTransaction extends Model
     {
         return $this->belongsTo(PromoCode::class, 'promo_code_id');
     }
-    
+
 }
