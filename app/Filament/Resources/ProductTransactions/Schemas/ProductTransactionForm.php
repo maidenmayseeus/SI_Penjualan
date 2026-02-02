@@ -163,6 +163,9 @@ class ProductTransactionForm
                         FileUpload::make('proof')
                             ->disabled(fn(Get $get):bool => $get('is_paid') !== true)
                             ->requiredIf('is_paid', true)
+                            ->downloadable()
+                            ->disk('public')
+                            ->directory('proof')
                             ->image(),
                     ]),
 
