@@ -77,9 +77,11 @@ class ProductTransactionForm
                             TextInput::make('quantity')
                                 ->required()
                                 ->numeric()
+                                ->minValue(1)
                                 ->prefix('Qty')
                                 ->live()
                                 ->afterStateUpdated(function ($state, callable $get, callable $set) {
+                                  if($state < 1) return;
                                     $price = $get('price');
                                     $qty = $state;
                                     $sta = $price * $qty;
