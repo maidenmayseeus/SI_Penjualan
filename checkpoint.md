@@ -3,7 +3,7 @@
 + Checkpoint 1 : Instalasi dan Konfigurasi Project ✅ Submited 14/01/2026
 + Checkpoint 2 : Instalasi FIlament dan CRUD Category ✅ Submited 19/01/2026
 + Checkpoint 3 : CRUD untuk Fitur ✅ Submited 21/01/2026
-                 1. Brand ✅ 
-                 2. Promo ✅ 
+                 1. Brand ✅
+                 2. Promo ✅
                  3. Produk ✅
-+ Checkpoint 4 : CRUD Transaksi Produk
++ Checkpoint 4 : CRUD Transaksi Produk ✅ Submited 05/02/2026
