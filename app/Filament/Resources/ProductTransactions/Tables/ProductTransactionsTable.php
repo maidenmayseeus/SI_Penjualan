@@ -26,7 +26,7 @@ class ProductTransactionsTable
         return $table
             ->columns([
                 ImageColumn::make('produk.thumbnail'),
-                ImageColumn::make('proof'),
+                ImageColumn::make('proof')->disk('public')->visibility('public'),
                 TextColumn::make('name')
                     ->searchable(),
                     TextColumn::make('produk.name')

@@ -112,6 +112,7 @@ class ProductTransactionForm
                                 ->label('Grand Total Amount')
                                 ->required()
                                 ->numeric()
+                                ->readOnly()
                                 ->prefix('IDR'),
                             TextInput::make('discount_amount')
                                 ->label('Discount Amount')
@@ -167,6 +168,7 @@ class ProductTransactionForm
                             ->requiredIf('is_paid', true)
                             ->downloadable()
                             ->disk('public')
+                            ->visibility('public')
                             ->directory('proof')
                             ->image(),
                     ]),

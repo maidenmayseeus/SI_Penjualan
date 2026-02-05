@@ -26,6 +26,7 @@ class AdminPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('admin')
+            ->brandName('Si Penjualan')
             ->path('admin')
             ->login()
             ->spa() // uabh aplikasi jadi Single page aplication (SPA) - https://filamentphp.com/docs/3.x/panels/configuration#spa-mode
